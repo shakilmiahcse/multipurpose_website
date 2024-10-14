@@ -1,30 +1,69 @@
-<script setup>
-import HelloWorld from './components/HelloWorld.vue'
-</script>
-
+<!-- src/App.vue -->
 <template>
-  <div>
-    <a href="https://vitejs.dev" target="_blank">
-      <img src="/vite.svg" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://vuejs.org/" target="_blank">
-      <img src="./assets/vue.svg" class="logo vue" alt="Vue logo" />
-    </a>
+  <div id="app" class="d-flex flex-column min-vh-100">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-success">
+      <div class="container">
+        <router-link class="navbar-brand" to="/">VueApp</router-link>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <router-link class="nav-link" to="/">Home</router-link>
+            </li>
+            <li class="nav-item">
+              <router-link class="nav-link" to="/projects">Projects</router-link>
+            </li>
+            <li class="nav-item">
+              <router-link class="nav-link" to="/contact">Contact</router-link>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <router-view class="flex-fill"></router-view>
+    <Footer />
   </div>
-  <HelloWorld msg="Vite + Vue" />
 </template>
 
-<style scoped>
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
+<script>
+import Footer from './components/Footer.vue';
+
+export default {
+  name: 'App',
+  components: {
+    Footer,
+  },
+};
+</script>
+
+<style>
+/* Optional: Additional global styles */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
+    Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  background-color: #f8f9fa;
 }
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
+
+/* Ensure the main content takes up available space */
+#app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
-.logo.vue:hover {
-  filter: drop-shadow(0 0 2em #42b883aa);
+
+router-view {
+  flex: 1;
 }
 </style>
