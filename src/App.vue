@@ -1,46 +1,25 @@
 <!-- src/App.vue -->
 <template>
   <div id="app" class="d-flex flex-column min-vh-100">
-    <nav class="navbar navbar-expand-lg navbar-dark bg-success">
-      <div class="container">
-        <router-link class="navbar-brand" to="/">VueApp</router-link>
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarNav"
-          aria-controls="navbarNav"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav ms-auto">
-            <li class="nav-item">
-              <router-link class="nav-link" to="/">Home</router-link>
-            </li>
-            <li class="nav-item">
-              <router-link class="nav-link" to="/projects">Projects</router-link>
-            </li>
-            <li class="nav-item">
-              <router-link class="nav-link" to="/contact">Contact</router-link>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav>
+    <!-- Header component -->
+    <Header />
+
+    <!-- Main content area -->
     <router-view class="flex-fill"></router-view>
+
+    <!-- Footer component -->
     <Footer />
   </div>
 </template>
 
 <script>
+import Header from './components/Header.vue';
 import Footer from './components/Footer.vue';
 
 export default {
   name: 'App',
   components: {
+    Header,
     Footer,
   },
 };
